@@ -123,5 +123,10 @@
       }
     }
   },
-  "defaultProject": "pokemon-project"
+  "defaultProject": "pokemon-project",
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false
+    }
+  }
 }
