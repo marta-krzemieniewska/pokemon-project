@@ -1,3 +1,8 @@
-<p>
-  item-view works!
-</p>
+<h1> <a *ngIf="id>1" routerLink="/list/{{id-1}}"> &larr; </a> {{pokemon.name}} <a routerLink="/list/{{id+1}}" > &rarr; </a></h1>
+<img [src]="pokemon.sprites.front_default" height=100 width=100>
+<div *ngFor="let stat of pokemon.stats">
+  <h3>{{stat.stat.name}}</h3>
+  <h5>effort: {{stat.effort}}</h5>
+  <h5>base stat: {{stat.base_stat}}</h5>
+</div>
+

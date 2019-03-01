@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-item-view',
   templateUrl: './item-view.component.html',
@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemViewComponent implements OnInit {
 
-  constructor() { }
+  public pokemon:any;
+  public id:number;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params=>{
+this.id = parseInt(this.route.snapshot.paramMap.get('id'),10);
+    });
+
+    this.route.data.subscribe(data => {
+      console.log(data);
+      this.pokemon = data.pokemon;
+    })
   }
 
 }
