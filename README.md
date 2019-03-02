@@ -1,6 +1,6 @@
 # PokemonProject
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2. and then upgraded to Angular version 7.2.7
 
 ## Development server
 
