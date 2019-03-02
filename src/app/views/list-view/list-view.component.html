@@ -1,3 +1,20 @@
-<p>
-  list-view works!
-</p>
+<h3 class="text-center m-10">Pokemon List</h3>
+<div class="row">
+  <div class="col-md-12">
+    <form #pokemonForm="ngForm" class="form-inline">
+      <input [(ngModel)]="id" name="id" class="form-control id-input" type="text" placeholder="Pokemon id" />
+      <button class="btn btn-primary" routerLink="/list/{{id}}">Go To This Pokemon!</button>
+    </form>
+  </div>
+</div>
+
+
+<ul>
+  <li *ngFor="let pokemon of list">
+    {{ pokemon.name + " (" + pokemon.url.split("/")[6] + ")"}}
+    <button class="btn btn-default">
+      <a routerLink="/list/{{pokemon.url.split('/')[6]}}"> &rarr; </a>
+    </button>
+  </li>
+</ul>
+<ngb-pagination [(page)]="page" [pageSize]="10" (pageChange)="onPageChange($event)" [collectionSize]="100"></ngb-pagination>
