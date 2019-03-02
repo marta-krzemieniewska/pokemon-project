@@ -7,19 +7,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ItemViewComponent implements OnInit {
 
-  public pokemon:any;
-  public id:number;
+  public pokemon: any;
+  public id: number;
+  public noPokemon: boolean;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params=>{
-this.id = parseInt(this.route.snapshot.paramMap.get('id'),10);
+    this.route.params.subscribe(params => {
+      this.id = parseInt(this.route.snapshot.paramMap.get('id'), 10);
     });
 
     this.route.data.subscribe(data => {
-      console.log(data);
-      this.pokemon = data.pokemon;
+      if (data.pokemon === "noPokemon") {
+        this.noPokemon = true;
+      } else {
+        this.pokemon = data.pokemon;
+      }
+
     })
   }
 
